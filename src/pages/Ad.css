@@ -1,0 +1,141 @@
+.card-text-water__mark::after{
+  bottom: 50%;
+  font-size: 40px;
+  opacity: .12;
+}
+
+#carousselDetail{
+  position: relative;
+}
+.carousel-control-prev,
+.carousel-control-next{
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 40px;
+  width: 40px;
+}
+
+.small-image {
+  display: inline-block;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.small-image img {
+  width: 100px;
+  height: 90px;
+  object-fit: cover;
+  border: 2px solid #c6c3c3f7;
+  border-radius: 7px;
+}
+
+.small-image.active img {
+  border-color: #f2f3f3;
+}
+
+.ad-description hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+.small-image {
+  margin: 0 5px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+  
+}
+.isSold-stillAvailable__button{
+  bottom: 0;
+  margin: 0 auto;
+}
+
+.small-image:hover,
+.small-image.active {
+  opacity: 1;
+}
+
+.img-loaded {
+  opacity: 1;
+}
+.card{
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+.card-container__content{
+  background-color: rgba(240, 248, 255, 0.953);
+  padding: 12px;
+  border-radius: none;
+}
+.heart {
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+}
+
+.container-Ad{
+  margin-top: 6rem !important;
+}
+.show-contact__chat {
+  border: solid 1px #0084ff;
+  background-color: #f9f9f9;
+  color: #007bee;
+  padding: 12px;
+  border-radius: 50px;
+}
+.show-contact__chat:hover{
+  background-color: #0084ff;
+  border: none;
+}
+.show-contact {
+  border: solid 1px #4ec1db;
+  background-color: #f9f9f9;
+  color: #0890ae;
+  border-radius: 50px;
+    padding: 12px;
+}
+
+.show-contact:hover {
+  background-color: #4ec1db;
+  border: none;
+}
+.isSold-button{
+  padding: 0.5rem 1rem 2rem !important;
+}
+
+.container-images__slider{
+  width: 100%;
+  margin: 0 auto;
+}
+
+ @media (max-width:1020px) {
+  .container-chat_showContact{
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+    }
+  }
+  .seller-description {
+      flex-direction: column;
+ }
+@media (max-width:600px) {
+  .card-text-water__mark::after {
+    bottom: 40%;
+    font-size: 35px;
+    opacity: .12;
+  }
+  .container-chat_showContact {
+    flex-direction: row;
+  }
+  .small-image img {
+    width: 80px;
+    height: 70px;
+  }
+}
