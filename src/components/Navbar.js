@@ -6,7 +6,6 @@ import { auth, db } from "../firebaseConfig";
 import React, { useContext, useState, useEffect } from "react";
 import { MdAddCircle } from "react-icons/md";
 import { BsMessenger } from "react-icons/bs";
-
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -39,7 +38,6 @@ const Navbar = () => {
           }
         }
       );
-
       return unsubscribe;
     }
   }, [user]);
@@ -81,6 +79,7 @@ const Navbar = () => {
                         <span className=" me-2 userGreet">
                           Hey {userName}!{" "}
                         </span>
+                    
                         <Link
                           to={`/profile/${user.uid}`}
                           className="toggle-menu__img"

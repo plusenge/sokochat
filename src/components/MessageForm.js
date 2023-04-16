@@ -17,5 +17,4 @@ const MessageForm = ({ text, setText, handleSubmit }) => {
     </form>
   );
 };
-
 export default MessageForm;

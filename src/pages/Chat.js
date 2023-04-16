@@ -8,7 +8,6 @@ const Chat = () => {
   const [chat, setChat] = useState();
   const [text, setText] = useState("");
   const location = useLocation();
-
   const user1 = auth.currentUser.uid;
 
   const getChat = async (ad) => {
@@ -21,7 +20,7 @@ const Chat = () => {
     if (location.state?.ad) {
       getChat(location.state?.ad);
     }
-  }, []);
+  },[]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,8 +38,8 @@ const Chat = () => {
     });
     setText("");
   };
-
   console.log(chat);
+
   return (
     <div className="row">
       <div
@@ -92,5 +91,4 @@ const Chat = () => {
     </div>
   );
 };
-
 export default Chat;
