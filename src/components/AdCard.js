@@ -130,23 +130,23 @@ const AdCard = (props) => {
             />
           </div>
         )}
-      </Link>{" "}
+      </Link>
       <div className="card-body">
-        {" "}
+        
         <div className="button-group d-flex">
-          {" "}
+          
           <Link to={adLink} className="card-title title-link">
-            {title}{" "}
-          </Link>{" "}
-        </div>{" "}
+            {title}
+          </Link>
+        </div>
         <div className="card-category-heart d-flex justify-content-between align-content-center">
-          {" "}
+          
           <Link to={adLink} className="category-link">
-            <p className="card-category">{category}</p>{" "}
-          </Link>{" "}
+            <p className="card-category">{category}</p>
+          </Link>
           <Link to={adLink} className="category-link">
-            <p className="card-category subcategory-name">{subcategory}</p>{" "}
-          </Link>{" "}
+            <p className="card-category subcategory-name">{subcategory}</p>
+          </Link>
           {showLoginMessage && (
             <span
               className="alert-warning__favorite alert alert-warning text-bg-danger"

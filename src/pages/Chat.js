@@ -13,7 +13,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { db, auth } from "../firebaseConfig";
 import { useLocation, Link } from "react-router-dom";
-import MessageForm from "../components/MessageForm";
+import MessageForm from "../components/MessageForm/MessageForm"
 import User from "../components/User";
 import Message from "../components/Message";
 

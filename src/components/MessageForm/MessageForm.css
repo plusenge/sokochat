@@ -1,0 +1,110 @@
+.message-form {
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background-color: #f5f5f5;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.message-input {
+  flex: 1;
+  margin-right: 10px;
+  padding: 10px;
+  border: none;
+  font-size: 16
+}
+
+.send-button {
+  background-color: #0084ff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.like-button {
+  background: none;
+  border: none;
+  margin-left: 10px;
+  font-size: 20px;
+  color: #0084ff;
+  cursor: pointer;
+}
+
+.emoji-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.emoji-container {
+  position: absolute;
+  bottom: 65px;
+  right: 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.close-emoji-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.emoji-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.emoji-grid input[type="button"] {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+@media (max-width: 768px) {
+  .message-input {
+    font-size: 14px;
+  }
+
+  .send-button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .like-button {
+    font-size: 16px;
+  }
+
+  .emoji-button {
+    font-size: 16px;
+  }
+
+  .emoji-container {
+    bottom: 60px;
+    right: 5px;
+  }
+
+  .emoji-grid input[type="button"] {
+    font-size: 20px;
+    padding: 3px;
+  }
+}
