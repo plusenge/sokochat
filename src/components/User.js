@@ -30,11 +30,11 @@ const User = ({ user, selectUser, chat }) => {
       onClick={handleClick}
       style={{ cursor: "pointer" }}
     >
-      {user.photoUrl ? (
+      {user.other.photoUrl ? (
         <img
-          src={user.photoUrl}
-          alt={user.name}
-          style={{ width: "50", height: "50px", borderRadius: "50%" }}
+          src={user.other.photoUrl}
+          alt={user.other.name}
+          style={{ width: "70px", height: "70px", border:"1 solid #f1f1f1", borderRadius: "50%" }}
         />
       ) : (
         <FaUserCircle size={50} />
