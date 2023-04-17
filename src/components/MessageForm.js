@@ -3,7 +3,7 @@ import React from "react";
 const MessageForm = ({ text, setText, handleSubmit }) => {
   return (
     <form
-      className="position-fixed bottom-0 start-0 end-0 p-2"
+      className="position-fixed bottom-0 p-2 w-100"
       onSubmit={handleSubmit}
     >
       <input
@@ -12,7 +12,7 @@ const MessageForm = ({ text, setText, handleSubmit }) => {
         placeholder="Write your message"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        style={{ width: "100%" }}
+        style={{ width: "100%", }}
       />
     </form>
   );

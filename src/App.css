@@ -1,48 +1,78 @@
-:root{
-  --blue-color: #5783db;
-  --green-color: #55c2da;
-}
-.form {
-  max-width: 476px;
-  margin: auto;
-}
-.btn-logout{
-  background-color: var(--blue-color);
-}
-.btn-logout:hover{
-  background-color: var(--blue-color);
-}
+ :root {
+   --blue-color: #5783db;
+   --green-color: #55c2da;
+ }
 
-.main-button{
-  background-color: var(--green-color);
-  border: #fff;
-}
-.main-button:hover {
-  background-color: #4ec1db;
-  border: #fff;
-}
-.main-button:hover {
-  background-color: #098ba9;
-  border: #fff;
-}
+ .form {
+   max-width: 476px;
+   margin: auto;
+ }
 
-/*All form animation*/
-.form-animation__header {
-  transition: all 0.3s ease-out;
-  opacity: 0;
-  transform: scale(0.5);
-  z-index: 9999;
-}
+ .btn-logout {
+   background-color: var(--blue-color);
+ }
 
-.form-animation__header.animate {
-  opacity: 1;
-  transform: scale(1);
-}
+ .btn-logout:hover {
+   background-color: var(--blue-color);
+ }
 
-input:focus, 
-select:focus,
-input:active,
-select:active{
-  outline: none !important;
-  box-shadow: none !important;
-}
+ .main-button {
+   background-color: var(--green-color);
+   border: #fff;
+ }
+
+ .main-button:hover {
+   background-color: #4ec1db;
+   border: #fff;
+ }
+
+ .main-button:hover {
+   background-color: #098ba9;
+   border: #fff;
+ }
+
+ /*All form animation*/
+ .form-animation__header {
+   transition: all 0.3s ease-out;
+   opacity: 0;
+   transform: scale(0.5);
+   z-index: 9999;
+ }
+
+ .form-animation__header.animate {
+   opacity: 1;
+   transform: scale(1);
+ }
+
+ input:focus,
+ select:focus,
+ input:active,
+ select:active {
+   outline: none !important;
+   box-shadow: none !important;
+ }
+
+ .receive-message__color {
+   background-color: rgba(0, 0, 0, 0.064);
+ }
+
+ .sendMessage__color {
+   background-color: #0099ff !important;
+   margin-right: 1rem;
+   border-radius: 14px !important;
+ }
+
+ .receiverMessage-color {
+   background-color: #040404cd;
+   border-radius: 14px !important;
+   margin-left: 1rem;
+   color: #f1f1f1;
+ }
+
+ .users_container {
+   box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+ }
+
+ .user-bg {
+   background-color: rgba(0, 0, 0, 0.052);
+ }

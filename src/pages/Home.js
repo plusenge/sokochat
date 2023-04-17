@@ -195,12 +195,12 @@ const Home = ({ toggleIsSold }) => {
         {ads.length > 0 ? (
           <div className="row">
             {ads.map((ad) => (
-              <div className="col-sm-6 col-md-4 col-xl-3 mb-3" key={ad.id}>
+              <div className="col-sm-6 col-md-4 col-xl-3 mb-3" key={ad.adId}>
                 <AdCard
                   ad={ad}
                   onFavoriteClick={handleFavoriteClick}
-                  key={ad.id}
-                  id={ad.id}
+                  key={ad.adId}
+                  id={ad.adId}
                   title={ad.title}
                   price={ad.price}
                   location={ad.location}

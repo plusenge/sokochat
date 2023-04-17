@@ -126,7 +126,6 @@ const Ad = () => {
 
     navigate("/chat", { state: { ad } });
   };
-  console.log(`BRYNCH ${location.state?.ad}`);
 
   return ad ? (
     <div style={{ marginTop: "5rem" }}>

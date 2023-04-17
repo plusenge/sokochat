@@ -58,7 +58,7 @@ const MyFavorites = () => {
           {ads.map((ad) => (
             <div
               className="col-sm-6 col-md-4 col-xl-3 mb-3 single-card__favorite"
-              key={ad.id}
+              key={ad.adId}
             >
               <AdCard ad={ad} className="background-image_photo" />
             </div>

@@ -28,9 +28,6 @@ const AdCard = (props) => {
 
   const isCurrentUser = auth.currentUser && auth.currentUser.uid === userId;
 
-  console.log(`ID: ${props.id}`);
-  console.log(`USER: ${auth.currentUser}`);
-
   const toggleFavorite = async () => {
     if (!auth.currentUser) {
       setShowLoginMessage(true);
@@ -40,7 +37,7 @@ const AdCard = (props) => {
       return;
     }
     const isFav = users.includes(auth.currentUser.uid);
-    const favRef = doc(db, "favorites", props.ad.id);
+    const favRef = doc(db, "favorites", props.ad.adId);
     if (isFav) {
       const newUsers = users.filter((id) => id !== auth.currentUser.uid);
       await updateDoc(favRef, { users: newUsers });
