@@ -7,21 +7,25 @@ import {
   onSnapshot,
   orderBy,
   query,
+  setDoc,
   Timestamp,
   where,
 } from "firebase/firestore";
+
 import React, { useEffect, useState } from "react";
 import { db, auth } from "../firebaseConfig";
 import { useLocation, Link } from "react-router-dom";
-import MessageForm from "../components/MessageForm/MessageForm"
+import MessageForm from "../components/MessageForm/MessageForm";
 import User from "../components/User";
 import Message from "../components/Message";
+import { onAuthStateChanged } from "firebase/auth";
 
 const Chat = () => {
   const [chat, setChat] = useState();
   const [text, setText] = useState("");
   const [users, setUsers] = useState([]);
   const [msgs, setMsgs] = useState([]);
+  const [online, setOnline] = useState({});
 
   const location = useLocation();
 
@@ -60,6 +64,7 @@ const Chat = () => {
     const messages = msgsSnap.docs.map((doc) => doc.data());
 
     const users = [];
+    const unsuscribes = [];
     for (const message of messages) {
       const adRef = doc(db, "ads", message.ad);
       const meRef = doc(
@@ -82,8 +87,20 @@ const Chat = () => {
         me: meDoc.data(),
         other: otherDoc.data(),
       });
+
+      const unsub = onSnapshot(otherRef, (doc) => {
+        setOnline((prev) => ({
+          ...prev,
+          [doc.data().uid]: doc.data().isOnline,
+        }));
+      });
+      unsuscribes.push(unsub);
     }
     setUsers(users);
+
+    return () => {
+      unsuscribes.forEach((unsuscribe) => unsuscribe());
+    };
   };
 
   useEffect(() => {
@@ -110,11 +127,29 @@ const Chat = () => {
     setText("");
   };
 
+  // Update the isOnline field in Firestore when the user logs in
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      const userRef = doc(db, "users", user.uid);
+      await setDoc(userRef, { isOnline: true }, { merge: true });
+    }
+  });
+
+  //  const handleDeleteMessage = (id) => {
+  //    setMessages((prevMessages) => prevMessages.filter((msg) => msg.id !== id));
+  //  };
+
   return (
     <div className="row g-0 ">
       <div className="col-2 col-md-4 users_container">
         {users.map((user, i) => (
-          <User key={i} user={user} selectUser={selectUser} chat={chat} />
+          <User
+            key={i}
+            user={user}
+            selectUser={selectUser}
+            chat={chat}
+            online={online}
+          />
         ))}
       </div>
       <div className="col-10 col-md-8 position-relative">
@@ -147,7 +182,7 @@ const Chat = () => {
                 </div>
               </div>
             </div>
-            <div className="messages overflow-auto">
+            <div className="messages overflow-auto mx-overflow-0">
               {msgs.map((msg, i) => (
                 <Message key={i} msg={msg} user1={user1} />
               ))}

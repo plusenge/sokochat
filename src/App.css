@@ -52,8 +52,8 @@
    box-shadow: none !important;
  }
 
- .messages{
-  height: calc(100vh - 100px);
+ .messages {
+   height: calc(100vh - 250px);
  }
 
  .receive-message__color {
@@ -79,4 +79,22 @@
 
  .user-bg {
    background-color: rgba(0, 0, 0, 0.052);
+ }
+
+ .status-online {
+   background-color: #2ecc71;
+   /* Green */
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+   display: inline-block;
+ }
+
+ .status-offline {
+   background-color: #e74c3c;
+   /* Red */
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+   display: inline-block;
  }

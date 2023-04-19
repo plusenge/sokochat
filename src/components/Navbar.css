@@ -56,6 +56,13 @@
   color: #55c2da;
 }
 
+.messenger-icon {
+  background-color: #ddddddf0;
+  width: 25px;
+  height: 25px;
+  padding: 3px;
+  border-radius: 50%;
+}
 
 @media (max-width: 991px) {
   .userGreet {

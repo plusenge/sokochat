@@ -79,7 +79,7 @@ const Navbar = () => {
                         <span className=" me-2 userGreet">
                           Hey {userName}!{" "}
                         </span>
-                    
+
                         <Link
                           to={`/profile/${user.uid}`}
                           className="toggle-menu__img"
@@ -104,8 +104,8 @@ const Navbar = () => {
                       <span>Profile</span>
                     </Link>
                     <Link className="nav-link messenger" to={"/chat"}>
-                      <BsMessenger size={25} fill={"#0084ff"} />{" "}
-                      <span>Message</span>
+                        <BsMessenger size={16} fill={"#0084ff"} className="messenger-icon" />
+                      <span> Message</span>
                     </Link>
                   </li>
                   <li className="nav-item">
