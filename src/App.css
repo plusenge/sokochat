@@ -84,17 +84,24 @@
  .status-online {
    background-color: #2ecc71;
    /* Green */
-   width: 10px;
-   height: 10px;
+   width: 15px !important;
+   height: 15px !important;
    border-radius: 50%;
+  border: solid 2px #fff;
    display: inline-block;
  }
 
  .status-offline {
    background-color: #e74c3c;
    /* Red */
-   width: 10px;
-   height: 10px;
+   width: 15px !important;
+   height: 15px !important;
    border-radius: 50%;
+   border: solid 2px #fff;
    display: inline-block;
+ }
+
+ .chat-container .d-flex.user-bg {
+   background-color: #f2f2f2;
+   background-color: red;
  }

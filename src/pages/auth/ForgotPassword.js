@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { auth } from "../../firebaseConfig";
 import { sendPasswordResetEmail } from "firebase/auth";
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Home from "../Home";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -26,15 +27,16 @@ const ForgotPassword = () => {
     } catch (error) {
       // setError(error.message);
       setError("Email not found!");
-
     }
   };
   return (
     <form className="shadow rounded p-3 mt-5 form" onSubmit={handleSubmit}>
-      <h4 className="text-center mb-3 fw-bold">
-        <span style={{ color: "#5783db" }}>Viva</span>
-        <span style={{ color: "#55c2da" }}>Congo</span>
-      </h4>
+      <Link className="text-decoration-none" to="/">
+        <h4 className="text-center mb-3 fw-bold">
+          <span style={{ color: "#5783db" }}>Soko</span>
+          <span style={{ color: "#55c2da" }}>Chat</span>
+        </h4>
+      </Link>
       <h5 className="mb-3">Forgot Password</h5>
       <hr />
       {/* <h3 className="text-center mb-3">Forgot Password</h3> */}
@@ -60,7 +62,7 @@ const ForgotPassword = () => {
           <div className="text-center mb-3">
             <button
               className="btn btn-secondary btn-sm w-100 d-flex justify-content-center text-center text-light "
-              style={{ backgroundColor: "#55c2da",height:"40px" }}
+              style={{ backgroundColor: "#55c2da", height: "40px" }}
             >
               Send
             </button>
@@ -87,4 +89,3 @@ const ForgotPassword = () => {
 };
 
 export default ForgotPassword;
-

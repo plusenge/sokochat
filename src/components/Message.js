@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import moment from "moment";
 
-const Message = ({ msg, user1, onDelete }) => {
+const Message = ({ msg, user1 }) => {
   const createdAt = moment(msg.createdAt.toDate());
   const formattedDateTime = createdAt.format("MMM DD YYYY h:mm A");
 

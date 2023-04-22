@@ -80,49 +80,41 @@ const MessageForm = ({ text, setText, handleSubmit }) => {
                 value="👎"
                 onClick={() => setText(text + "👎")}
               />
-
               <input
                 type="button"
                 value="😊"
                 onClick={() => setText(text + "😊")}
               />
-
               <input
                 type="button"
                 value="😎"
                 onClick={() => setText(text + "😎")}
               />
-
               <input
                 type="button"
                 value="🥰"
                 onClick={() => setText(text + "🥰")}
               />
-
               <input
                 type="button"
                 value="🤩"
                 onClick={() => setText(text + "🤩")}
               />
-
               <input
                 type="button"
                 value="🤔"
                 onClick={() => setText(text + "🤔")}
               />
-
               <input
                 type="button"
                 value="🥰"
                 onClick={() => setText(text + "🥰")}
               />
-
               <input
                 type="button"
                 value="🤯"
                 onClick={() => setText(text + "🤯")}
               />
-
               <input
                 type="button"
                 value="🤗"
@@ -138,19 +130,16 @@ const MessageForm = ({ text, setText, handleSubmit }) => {
                 value="🤫"
                 onClick={() => setText(text + "🤫 ")}
               />
-
               <input
                 type="button"
                 value="😴"
                 onClick={() => setText(text + "😴")}
               />
-
               <input
                 type="button"
                 value="🥱 "
                 onClick={() => setText(text + "🥱 ")}
               />
-
               <input
                 type="button"
                 value="🤫"

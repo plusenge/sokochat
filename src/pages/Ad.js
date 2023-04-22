@@ -1,11 +1,7 @@
+// Importing necessary dependencies and components
 import { useState, useEffect } from "react";
-import {
-  useParams,
-  useNavigate,
-  Link,
-  useLocation,
-  useHistory,
-} from "react-router-dom";
+import { nanoid } from "nanoid";
+import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
 import { deleteDoc, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { ref, deleteObject } from "firebase/storage";
 import { db, storage, auth } from "../firebaseConfig";
@@ -19,7 +15,9 @@ import useSnapshot from "../utils/useSnapshot";
 import "./Ad.css";
 import Sold from "../components/Sold";
 
+// Define a functional component called Ad
 const Ad = () => {
+  // Use the useParams hook from react-router-dom to get the ID of the current ad from the URL
   const { id } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -51,7 +49,7 @@ const Ad = () => {
   useEffect(() => {
     getAd();
   }, []);
-  console.log(ad);
+  console.log(`ad does not exist ${id}`);
 
   //Delete ad function
   const deleteAd = async () => {
@@ -111,6 +109,10 @@ const Ad = () => {
     });
     getAd();
   };
+
+  function generateRandomId() {
+    return crypto.randomBytes(16).toString("hex");
+  }
 
   const createChatroom = async () => {
     const loggedInUser = auth.currentUser.uid;

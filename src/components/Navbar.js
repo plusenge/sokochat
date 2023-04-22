@@ -9,10 +9,11 @@ import { BsMessenger } from "react-icons/bs";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, unread} = useContext(AuthContext);
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [userImage, setUserImage] = useState("");
+  console.log(`unread ${unread}`);
 
   const handleSignout = async () => {
     //update user doc
@@ -52,8 +53,8 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-md bg-light navbar-light fixed-top shadow-sm toggle-menu__container ">
         <div className="container">
           <Link className="navbar-brand fw-bold" to="/">
-            <span className="logo-viva">Viva</span>
-            <span className="logo-soko">Soko</span>
+            <span className="logo-viva">Soko</span>
+            <span className="logo-soko">Chat</span>
           </Link>
           <button
             className="navbar-toggler"
@@ -103,9 +104,23 @@ const Navbar = () => {
                     >
                       <span>Profile</span>
                     </Link>
-                    <Link className="nav-link messenger" to={"/chat"}>
-                        <BsMessenger size={16} fill={"#0084ff"} className="messenger-icon" />
-                      <span> Message</span>
+                    <Link
+                      className="nav-link position-relative messenger"
+                      to={"/chat"}
+                    >
+                      <BsMessenger
+                        size={17}
+                        fill={"#0084ff"}
+                        className="messenger-icon"
+                      />
+                      <span>
+                        Message
+                        {/* {unread.length ? (
+                          <span className="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                            <span className="visually-hidden">New alerts</span>
+                          </span>
+                        ) : null} */}
+                      </span>
                     </Link>
                   </li>
                   <li className="nav-item">

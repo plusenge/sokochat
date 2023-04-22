@@ -9,10 +9,10 @@ import {
   query,
   setDoc,
   Timestamp,
+  updateDoc,
   where,
 } from "firebase/firestore";
-
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import { db, auth } from "../firebaseConfig";
 import { useLocation, Link } from "react-router-dom";
 import MessageForm from "../components/MessageForm/MessageForm";
@@ -33,7 +33,6 @@ const Chat = () => {
 
   const selectUser = async (user) => {
     setChat(user);
-
     const user2 = user.other.uid;
     const id =
       user1 > user2
@@ -48,8 +47,18 @@ const Chat = () => {
       querySnapshot.forEach((doc) => msgs.push(doc.data()));
       setMsgs(msgs);
     });
-  };
 
+    const docSnap = await getDoc(doc(db, 'message', id))
+    if (docSnap.exists()) {
+      if (docSnap.data().lastSender !== user1 && docSnap.data().lastUnread) {{
+          await updateDoc(doc(db, 'messages', id), {
+          lastUnread:false,
+        })
+      }
+        
+      }
+    }
+  };
   const getChat = async (ad) => {
     const buyer = await getDoc(doc(db, "users", user1));
     const seller = await getDoc(doc(db, "users", ad.postedBy));
@@ -124,6 +133,12 @@ const Chat = () => {
       sender: user1,
       createdAt: Timestamp.fromDate(new Date()),
     });
+
+    await updateDoc(doc(db, 'messages', chatId), {
+      lastText: text,
+      lastSender: user1,
+      lastUnread:true,
+    })
     setText("");
   };
 
@@ -135,10 +150,6 @@ const Chat = () => {
     }
   });
 
-  //  const handleDeleteMessage = (id) => {
-  //    setMessages((prevMessages) => prevMessages.filter((msg) => msg.id !== id));
-  //  };
-
   return (
     <div className="row g-0 ">
       <div className="col-2 col-md-4 users_container">
@@ -149,6 +160,7 @@ const Chat = () => {
             selectUser={selectUser}
             chat={chat}
             online={online}
+            user1 = {user1}
           />
         ))}
       </div>
@@ -166,19 +178,19 @@ const Chat = () => {
                 <img
                   src={chat.ad.images[0].url}
                   alt={chat.ad.title}
-                  style={{ width: "50px", height: "50px" }}
+                  style={{ width: "80px", height: "70px" }}
                 />
                 <div className="d-flex align-items-center justify-content-between flex-grow-1 ms-1">
                   <div>
                     <h6>{chat.ad.title}</h6>
                     <small>{chat.ad.price}</small>
                   </div>
-                  <Link
-                    className="btn btn-secondary btn-sm"
-                    to={`/${chat.ad.category.toLowerCase()}/${chat.ad.adId}`}
-                  >
-                    View Ad
-                  </Link>
+                  {/* <Link
+                      className="btn btn-secondary btn-sm"
+                      to={`/${chat.ad.category.toLowerCase()}/${chat.ad.adId}`}
+                    >
+                      View Ad
+                    </Link>  */}
                 </div>
               </div>
             </div>
@@ -205,3 +217,4 @@ const Chat = () => {
 };
 
 export default Chat;
+

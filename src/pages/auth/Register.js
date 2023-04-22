@@ -167,10 +167,12 @@ const Register = () => {
   return (
     <div className={`form-animation__header ${showAnimation ? "animate" : ""}`}>
       <form className="shadow rounded p-3 mt-5 form" onSubmit={handleSubmit}>
+        <Link className="text-decoration-none" to="/">
         <h4 className="text-center mb-3 fw-bold">
-          <span style={{ color: "#5783db" }}>Viva</span>
-          <span style={{ color: "#55c2da" }}>Congo</span>
+          <span style={{ color: "#5783db" }}>Soko</span>
+          <span style={{ color: "#55c2da" }}>Chat</span>
         </h4>
+        </Link>
         <h5 className="mb-3">Create An Account</h5>
         <hr />
 

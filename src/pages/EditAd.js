@@ -9,14 +9,14 @@ import "./EditAd.css";
 const EditAd = () => {
   const [showAnimation, setShowAnimation] = useState(false);
 
-   useEffect(() => {
-     // Delay the animation by 50ms
-     const timeout = setTimeout(() => {
-       setShowAnimation(true);
-     }, 50);
-     return () => clearTimeout(timeout);
-   }, []);
-  
+  useEffect(() => {
+    // Delay the animation by 50ms
+    const timeout = setTimeout(() => {
+      setShowAnimation(true);
+    }, 50);
+    return () => clearTimeout(timeout);
+  }, []);
+
   const { id } = useParams();
   const navigate = useNavigate();
   const [adData, setAdData] = useState({

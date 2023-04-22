@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import { categories, locations } from "../data/config";
 import NotFoundSearch from "../components/NotFoundSearch";
+import Footer from "../components/Footer";
 
 const Home = ({ toggleIsSold }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -21,11 +22,8 @@ const Home = ({ toggleIsSold }) => {
   const [ads, setAds] = useState([]);
   const { user } = useContext(AuthContext);
   const [selectedPrice, setSelectedPrice] = useState("");
-  const [sort, setSort] = useState("");
-  // State variables for the selected category and subcategory
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSubCategory, setSelectedSubcategory] = useState("");
-  const [showWelcomePage, setShowWelcomePage] = useState(true);
 
   // Event handler for selecting a category
   const handleCategoryChange = (e) => {
@@ -100,10 +98,13 @@ const Home = ({ toggleIsSold }) => {
     setSelectedCategory("");
     setSelectedSubcategory("");
   };
-
   return (
     <>
       <div className="container category-container">
+        <h3 className="mb-4 text-dark">
+          {" "}
+          Sell, Buy and Promote your product...
+        </h3>
         <div
           className="d-flex justify-content-center justify-content-md-between flex-wrap filter-container p-3"
           style={{ backgroundColor: "aliceblue" }}
@@ -141,10 +142,14 @@ const Home = ({ toggleIsSold }) => {
                 </select>
               </div>
               {selectedCategoryObj && (
-                <div className="subcategory-container">
-                  <h6 className="mt-3 display-category__name">
+                <div
+                  className="subcategory-container"
+                  style={{ position: "fixed", zIndex: "1" }}
+                >
+                  {/*Important display commented it out, don't delete */}
+                  {/* <h6 className="mt-3 display-category__name">
                     {selectedCategoryObj.name}
-                  </h6>
+                  </h6> */}
 
                   <ul className="subcategory-list">
                     {selectedCategoryObj.subcategories.map(
@@ -181,7 +186,7 @@ const Home = ({ toggleIsSold }) => {
                   className=" btn remove-all_filter"
                   onClick={handleRemoveAllClick}
                 >
-                  <span className="text-danger mx-1 fs-5">x</span>Remove All
+                  Remove
                 </button>
               </div>
             ) : (
@@ -189,7 +194,7 @@ const Home = ({ toggleIsSold }) => {
             )}
           </div>
         </div>
-        <h4 className="mt-3 mb-0">Recent Listings...</h4>
+        <h4 className="mt-5 mb-0">Recent Listings...</h4>
 
         {/*AdCard component pass handleFavoriteClick function*/}
         {ads.length > 0 ? (
@@ -215,6 +220,8 @@ const Home = ({ toggleIsSold }) => {
           (searchQuery || isFilterSelected) && <NotFoundSearch />
         )}
       </div>
+      <div className="text-center h-100"><Footer /></div>
+      
     </>
   );
 };

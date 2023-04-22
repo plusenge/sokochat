@@ -30,9 +30,21 @@ li.subcategory{
   margin-left: 10px;
 }
 .remove-all_filter{
-  background-color: #f8d7da;
+  background-color: #f37979;
+  color: #fff;
   padding: 15px auto;
+  cursor: pointer;
 }
+
+/* .remove-all_filter {
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+} */
+
 .remove-all_filter:hover {
   background-color: #b0525a95;
   color: #fefefe;

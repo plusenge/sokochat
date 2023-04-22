@@ -23,6 +23,36 @@ const MyFavorites = () => {
 
   const [ads, setAds] = useState([]);
 
+  // const getAds = async () => {
+  //   try {
+  //     const favRef = collection(db, "favorites");
+  //     const q = query(
+  //       favRef,
+  //       where("users", "array-contains", auth.currentUser.uid)
+  //     );
+  //     const docsSnap = await getDocs(q);
+
+  //     const promises = [];
+  //     docsSnap.forEach((doc) => {
+  //       const adsRef = collection(db, "ads");
+  //       const q = query(adsRef, where(documentId(), "==", doc.id));
+  //       promises.push(getDocs(q));
+  //     });
+
+  //     const ads = [];
+  //     const docs = await Promise.all(promises);
+  //     docs.forEach((querySnap) => {
+  //       querySnap.forEach((dSnap) => {
+  //         ads.push({ ...dSnap.data(), id: dSnap.id, adId: dSnap.id });
+  //       });
+  //     });
+
+  //     setAds(ads);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
   const getAds = async () => {
     // get ads from fav collection where users includes logged in user
     const favRef = collection(db, "favorites");

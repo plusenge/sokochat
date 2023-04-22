@@ -17,6 +17,11 @@ import Ad from "./pages/Ad";
 import EditAd from "./pages/EditAd";
 import None from "./components/None";
 import Chat from "./pages/Chat";
+import PrivacyPolicy from "./components/FooterContent/PrivacyPolicy";
+
+import AboutUs from "./components/FooterContent/AboutUs";
+import HowToUse from "./components/FooterContent/HowToUse";
+import TermConditions from "./components/FooterContent/TermConditions";
 
 const App = () => {
   return (
@@ -39,6 +44,11 @@ const App = () => {
           <Route path="/edit-ad/:id" element={<EditAd />} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<None />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="terms-conditions" element={<TermConditions />} />
+
+          <Route path="about-us" element={<AboutUs />} />
+          <Route path="how-to-use" element={<HowToUse />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

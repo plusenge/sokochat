@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import moment from "moment";
-import { doc, updateDoc, setDoc, deleteDoc } from "firebase/firestore";
+import {
+  doc,
+  updateDoc,
+  setDoc,
+  getDoc,
+  deleteDoc,
+  arrayUnion,
+  arrayRemove,
+} from "firebase/firestore";
 import { db, auth } from "../firebaseConfig";
 import { BsFillHeartFill, BsHeart, BsTrash } from "react-icons/bs";
 import defaultImage from "../assets/images/no-photo.jpg";
@@ -37,7 +45,7 @@ const AdCard = (props) => {
       return;
     }
     const isFav = users.includes(auth.currentUser.uid);
-    const favRef = doc(db, "favorites", props.ad.adId);
+    const favRef = doc(db, "favorites", props.ad.id);
     if (isFav) {
       const newUsers = users.filter((id) => id !== auth.currentUser.uid);
       await updateDoc(favRef, { users: newUsers });
@@ -49,7 +57,9 @@ const AdCard = (props) => {
 
   const deleteAd = async () => {
     if (window.confirm("Are you sure you want to delete this ad?")) {
-      await deleteDoc(doc(db, "ads", props.ad.id));
+      // await deleteDoc(doc(db, "ads", props.ad.id));
+      await deleteDoc(doc(db, "ads", props.ad.adId));
+
     }
   };
 
