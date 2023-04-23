@@ -98,12 +98,12 @@ const HowToUse = () => {
             </p>
             <ul className="list-unstyled">
               <li className="mb-3">
-                <FaCheck className="me-2 text-primary" />
+                <FaCheck className="me-2 text-primary" fill="#55c2da" />
                 <strong>Create an account on Sokochat</strong> - This will allow
                 you to post ads and receive messages from potential buyers.
               </li>
               <li className="mb-3">
-                <FaCheck className="me-2 text-primary" />
+                <FaCheck className="me-2 text-primary" fill="#55c2da" />
                 <strong>
                   Browse through available ads to find what you need
                 </strong>{" "}
@@ -111,7 +111,7 @@ const HowToUse = () => {
                 services that match your needs.
               </li>
               <li className="mb-3">
-                <FaCheck className="me-2 text-primary" />
+                <FaCheck className="me-2 text-primary" fill="#55c2da" />
                 <strong>
                   Contact the seller or advertiser to make arrangements
                 </strong>{" "}
@@ -119,7 +119,7 @@ const HowToUse = () => {
                 arrange a meeting.
               </li>
               <li className="mb-3">
-                <FaCheck className="me-2 text-primary" />
+                <FaCheck className="me-2 text-primary" fill="#55c2da" />
                 <strong>
                   Meet with the seller to exchange goods and payment
                 </strong>{" "}
@@ -127,7 +127,7 @@ const HowToUse = () => {
                 seller to complete the transaction.
               </li>
               <li className="mb-3">
-                <FaCheck className="me-2 text-primary" />
+                <FaCheck className="me-2 text-primary" fill="#55c2da" />
                 <strong>Rate your experience</strong> - After the sale is
                 complete, leave a review to help other users know what to expect
                 from the seller.
@@ -139,7 +139,10 @@ const HowToUse = () => {
               <div className="col-6">
                 <div className="d-flex justify-content-center align-items-center h-100">
                   <div>
-                    <FaSearch className="display-4 mb-3 text-primary" />
+                    <FaSearch
+                      className="display-4 mb-3 text-primary"
+                      fill="#55c2da"
+                    />
                     <h3>Find What You Need</h3>
                     <p>
                       With a wide range of categories and a powerful search
@@ -152,7 +155,10 @@ const HowToUse = () => {
               <div className="col-6">
                 <div className="d-flex justify-content-center align-items-center h-100">
                   <div>
-                    <FaHandshake className="display-4 mb-3 text-primary" />
+                    <FaHandshake
+                      className="display-4 mb-3 text-primary"
+                      fill="#55c2da"
+                    />
                     <h3>Make a Deal</h3>
                     <p>
                       Once you've found what you need, contact the seller or

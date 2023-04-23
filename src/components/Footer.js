@@ -7,17 +7,20 @@ import {
   FaTwitter,
   FaInstagram,
 } from "react-icons/fa";
-import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div className="footer-container" style={{ marginBottom: "-1rem" }}>
+    <div
+      className="footer-container"
+      style={{ width: "97%", margin: "auto", marginBottom: "-10rem" }}
+    >
       <footer
         className="mt-5 text-light"
         style={{
           backgroundColor: "#55c2da",
           color: "#333",
           marginBottom: "1rem",
+          borderRadius: "7px",
         }}
       >
         <div className="container py-5">
@@ -73,16 +76,13 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="social-media mt-3">
-                  <a href="#" className="bg-light text-dark me-3 rounded-2 p-2">
+                  <a href="www.instagram.com" className="text-dark me-3">
                     <FaFacebook size={26} fill="#1877f2" />
                   </a>
-                  <a
-                    href="#"
-                    className=" bg-light text-dark me-3 rounded-2 p-2"
-                  >
+                  <a href="www.instagram.com" className="text-dark me-3">
                     <FaTwitter size={26} fill="#1da1f2" />
                   </a>
-                  <a href="#" className="text-dark me-3 bg-light rounded-2 p-2">
+                  <a href="www.instagram.com" className="text-dark me-3">
                     <FaInstagram size={26} fill="#c13584" />
                   </a>
                 </li>
@@ -92,7 +92,12 @@ const Footer = () => {
         </div>
         <div
           className="py-3"
-          style={{ backgroundColor: "#5783db", color: "#FFFFFF" }}
+          style={{
+            backgroundColor: "#5783db",
+            color: "#FFFFFF",
+            borderBottomLeftRadius: "7px",
+            borderBottomRightRadius: "7px",
+          }}
         >
           <div className="container text-center">
             <p className="mb-0">&copy; 2023 SokoChat. All rights reserved.</p>

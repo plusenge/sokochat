@@ -4,8 +4,8 @@ import Footer from "../Footer";
 const TermConditions = () => {
   return (
     <>
-    <div className="container py-5">
-      <h1 className="text-center mb-5">Terms and Conditions</h1>
+    <div className="container py-0">
+      <h1 className="text-center mb-3">Terms and Conditions</h1>
       <div className="row">
         <div className="col-md-8 mx-auto">
           <p className="lead">
@@ -16,7 +16,7 @@ const TermConditions = () => {
             of its products or services (collectively, "Website" or "Services").
           </p>
 
-          <h3 className="mt-5">1. Acceptance of terms</h3>
+          <h3 className="mt-0">1. Acceptance of terms</h3>
           <p>
             By using the Website or its Services, you agree to be bound by this
             Agreement, whether or not you have read it. If you do not agree to
@@ -24,7 +24,7 @@ const TermConditions = () => {
             Services.
           </p>
 
-          <h3 className="mt-5">2. Use of the website and services</h3>
+          <h3 className="mt-0">2. Use of the website and services</h3>
           <p>
             The Website and its Services are intended for individuals aged 18
             years or older. Any access to or use of the Website or its Services
@@ -33,7 +33,7 @@ const TermConditions = () => {
             you are 18 years or older.
           </p>
 
-          <h3 className="mt-5">3. User content</h3>
+          <h3 className="mt-0">3. User content</h3>
           <p>
             We do not own any data, information or material ("Content") that you
             submit on the Website in the course of using the Service. You shall
@@ -44,7 +44,7 @@ const TermConditions = () => {
             Services by you.
           </p>
 
-          <h3 className="mt-5">4. Modifications and interruptions</h3>
+          <h3 className="mt-0">4. Modifications and interruptions</h3>
           <p>
             We reserve the right to modify or discontinue the Website or its
             Services with or without notice to you. We will not be liable to you
@@ -54,7 +54,7 @@ const TermConditions = () => {
             that we determine, in our sole discretion, need to be resolved.
           </p>
 
-          <h3 className="mt-5">5. Governing law</h3>
+          <h3 className="mt-0">5. Governing law</h3>
           <p>
             This Agreement, and any dispute arising out of or in connection with
             this Agreement, shall be governed by and construed in accordance
@@ -62,7 +62,7 @@ const TermConditions = () => {
             conflict of law provisions.
           </p>
 
-          <h3 className="mt-5">6. Contact information</h3>
+          <h3 className="mt-0 mb-2">6. Contact information</h3>
           <p>
             If you have any questions about this Agreement, please contact us at
             support@sokochat.com.
