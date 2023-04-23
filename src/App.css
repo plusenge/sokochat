@@ -2,7 +2,11 @@
    --blue-color: #5783db;
    --green-color: #55c2da;
  }
-
+body {
+ min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
  .form {
    max-width: 476px;
    margin: auto;

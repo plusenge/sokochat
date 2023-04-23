@@ -11,10 +11,14 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div>
+    <div className="footer-container" style={{ marginBottom: "-1rem" }}>
       <footer
         className="mt-5 text-light"
-        style={{ backgroundColor: "#55c2da", color: "#333" }}
+        style={{
+          backgroundColor: "#55c2da",
+          color: "#333",
+          marginBottom: "1rem",
+        }}
       >
         <div className="container py-5">
           <div className="row">
@@ -27,7 +31,7 @@ const Footer = () => {
                 for buying, selling, or finding what you need.
               </p>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-4 col-md-4 text-center">
               <h5>Information</h5>
               <ul className="list-unstyled text-small">
                 <li>
@@ -69,14 +73,17 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="social-media mt-3">
-                  <a href="#" className="text-dark me-3">
-                    <FaFacebook size={25} fill="#1877f2" />
+                  <a href="#" className="bg-light text-dark me-3 rounded-2 p-2">
+                    <FaFacebook size={26} fill="#1877f2" />
                   </a>
-                  <a href="#" className="text-dark me-3">
-                    <FaTwitter size={25} fill="#1da1f2" />
+                  <a
+                    href="#"
+                    className=" bg-light text-dark me-3 rounded-2 p-2"
+                  >
+                    <FaTwitter size={26} fill="#1da1f2" />
                   </a>
-                  <a href="#" className="text-dark me-3">
-                    <FaInstagram size={25} fill="#c13584" />
+                  <a href="#" className="text-dark me-3 bg-light rounded-2 p-2">
+                    <FaInstagram size={26} fill="#c13584" />
                   </a>
                 </li>
               </ul>
@@ -97,3 +104,7 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+
+

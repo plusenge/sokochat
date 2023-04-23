@@ -103,7 +103,7 @@ const Home = ({ toggleIsSold }) => {
       <div className="container category-container">
         <h3 className="mb-4 text-dark">
           {" "}
-          Sell, Buy and Promote your product...
+          Sell, Buy and Promote your product
         </h3>
         <div
           className="d-flex justify-content-center justify-content-md-between flex-wrap filter-container p-3"
