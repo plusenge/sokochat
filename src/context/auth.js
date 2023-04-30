@@ -36,7 +36,7 @@ const AuthProvider = ({ children }) => {
       }
 
     });
-  }, []);
+  },[]);
   if (loading) {
     return <Loading />;
   }
