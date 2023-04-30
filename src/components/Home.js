@@ -6,18 +6,20 @@ import "../components/Home.css";
 function HomePageHeader() {
   return (
     <>
-      <div data-aos="flip-left" 
+      <div
+        data-aos="fade-up"
+        data-aos-duration="3000"
         className="banner "
         style={{
           background: "#f9f9f9",
           display: "flex",
-          justifyContent:"center",
+          justifyContent: "center",
           padding: "50px 0",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           justifyItems: "center",
-          height:"80vh"
+          height: "80vh",
         }}
       >
         <div
@@ -37,7 +39,7 @@ function HomePageHeader() {
               alignItems: "center",
             }}
           >
-            <div  className="col-md-6">
+            <div className="col-md-6">
               <img
                 src={bannerImg}
                 alt="Banner"
