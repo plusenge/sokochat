@@ -100,6 +100,7 @@ const Home = ({ toggleIsSold }) => {
   };
   return (
     <>
+    <h1>Test</h1>
       <div className="container category-container">
         <h3 className="mb-4 text-dark"> Sell, Buy and Promote your product</h3>
         <div
