@@ -100,9 +100,12 @@ const Home = ({ toggleIsSold }) => {
   };
   return (
     <>
+      <h1>Test</h1>
       <div className="container category-container">
-        <h3 className="mb-4 text-dark"> Sell, Buy and Promote your product</h3>
-        <div
+        <h3 className="mb-4 text-dark">
+          Sell, Buy and Promote your product
+        </h3>
+      <div
           className="d-flex justify-content-center justify-content-md-between flex-wrap filter-container p-3"
           style={{ backgroundColor: "aliceblue" }}
         >
@@ -118,7 +121,6 @@ const Home = ({ toggleIsSold }) => {
               <option value="low">Price Low</option>
             </select>
           </div>
-
           <div className="d-flex justify-content-center justify-content-md-between flex-wrap ">
             <div>
               <div className="filter-container">

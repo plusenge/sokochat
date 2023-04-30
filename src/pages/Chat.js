@@ -12,7 +12,7 @@ import {
   updateDoc,
   where,
 } from "firebase/firestore";
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { db, auth } from "../firebaseConfig";
 import { useLocation, Link } from "react-router-dom";
 import MessageForm from "../components/MessageForm/MessageForm";
@@ -48,14 +48,14 @@ const Chat = () => {
       setMsgs(msgs);
     });
 
-    const docSnap = await getDoc(doc(db, 'message', id))
+    const docSnap = await getDoc(doc(db, "message", id));
     if (docSnap.exists()) {
-      if (docSnap.data().lastSender !== user1 && docSnap.data().lastUnread) {{
-          await updateDoc(doc(db, 'messages', id), {
-          lastUnread:false,
-        })
-      }
-        
+      if (docSnap.data().lastSender !== user1 && docSnap.data().lastUnread) {
+        {
+          await updateDoc(doc(db, "messages", id), {
+            lastUnread: false,
+          });
+        }
       }
     }
   };
@@ -134,11 +134,11 @@ const Chat = () => {
       createdAt: Timestamp.fromDate(new Date()),
     });
 
-    await updateDoc(doc(db, 'messages', chatId), {
+    await updateDoc(doc(db, "messages", chatId), {
       lastText: text,
       lastSender: user1,
-      lastUnread:true,
-    })
+      lastUnread: true,
+    });
     setText("");
   };
 
@@ -173,7 +173,10 @@ const Chat = () => {
             >
               <h3>{chat.other.name}</h3>
             </div>
-            <div className="p-2 chat-ads" style={{ borderBottom: "1px solid #ddd" }}>
+            <div
+              className="p-2 chat-ads"
+              style={{ borderBottom: "1px solid #ddd" }}
+            >
               <div className="d-flex align-items-center">
                 <img
                   src={chat.ad.images[0].url}
@@ -181,7 +184,7 @@ const Chat = () => {
                   style={{ width: "80px", height: "70px" }}
                 />
                 <div className="d-flex align-items-center justify-content-between flex-grow-1 ms-1">
-                  <div >
+                  <div>
                     <h6 className="product-name">{chat.ad.title}</h6>
                     <small className="product-price">${chat.ad.price}</small>
                   </div>
@@ -217,4 +220,3 @@ const Chat = () => {
 };
 
 export default Chat;
-

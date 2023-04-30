@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import useSnapshot from "../utils/useSnapshot"
+import { BsTypeH1 } from "react-icons/bs";
 
 const User = ({ user, selectUser, chat, online, user1 }) => {
   const user2 = user.other.uid;
@@ -32,8 +33,8 @@ const User = ({ user, selectUser, chat, online, user1 }) => {
   console.log("val: ", val);
   console.log("val.lastSender: ", val?.lastSender);
   console.log("val.lastUnread: ", val?.lastUnread);
-
   return (
+    <div>
     <div
       className={`d-flex align-items-center justify-content-center justify-content-md-start my-2 p-1 mx-1 ${
         user.ad.title === chat?.ad.title ? "user-bg" : ""
@@ -80,8 +81,9 @@ const User = ({ user, selectUser, chat, online, user1 }) => {
           <br />
         <span className="product-name">{user.ad.title}</span>  
         </h6>
+        </div>
       </div>
-    </div>
+      </div>
   );
 };
 export default User;
