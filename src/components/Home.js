@@ -4,22 +4,20 @@ import bannerImg from "../assets/images/banner2.png";
 import "../components/Home.css";
 
 function HomePageHeader() {
-  const [fadeIn, setFadeIn] = useState(false);
-
-  useEffect(() => {
-    setFadeIn(true);
-  }, []);
-
   return (
     <>
       <div
-        className={`banner${fadeIn ? " fade-in" : ""}`}
+        className="banner"
         style={{
           background: "#f9f9f9",
+          display: "flex",
+          justifyContent:"center",
           padding: "50px 0",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          justifyItems: "center",
+          height:"80vh"
         }}
       >
         <div
