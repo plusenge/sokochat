@@ -99,7 +99,7 @@ const Home = ({ toggleIsSold }) => {
     setSelectedSubcategory("");
   };
   return (
-    <div className="bg-danger">
+    <>
       <div className="container category-container">
         <h3 className="mb-4 text-dark">
           Sell, Buy and Promote your product
@@ -221,7 +221,7 @@ const Home = ({ toggleIsSold }) => {
       <div className="text-center h-100">
         <Footer />
       </div>
-    </div>
+    </>
   );
 };
 export default Home;
