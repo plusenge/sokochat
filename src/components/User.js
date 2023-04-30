@@ -76,9 +76,9 @@ const User = ({ user, selectUser, chat, online, user1 }) => {
 
       <div className="d-none d-md-inline-block ms-2">
         <h6>
-          {user.other.name}
+        {user.other.name}
           <br />
-          {user.ad.title}
+        <span className="product-name">{user.ad.title}</span>  
         </h6>
       </div>
     </div>

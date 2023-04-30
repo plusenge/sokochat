@@ -151,7 +151,7 @@ const Chat = () => {
   });
 
   return (
-    <div className="row g-0 ">
+    <div className="row g-0">
       <div className="col-2 col-md-4 users_container">
         {users.map((user, i) => (
           <User
@@ -160,20 +160,20 @@ const Chat = () => {
             selectUser={selectUser}
             chat={chat}
             online={online}
-            user1 = {user1}
+            user1={user1}
           />
         ))}
       </div>
-      <div className="col-10 col-md-8 position-relative">
+      <div className="col-10 col-md-8 position-relative chat-ads__container ">
         {chat ? (
           <div>
             <div
-              className="text-center mt-1"
+              className="text-center mt-0"
               style={{ borderBottom: "1px solid #ddd" }}
             >
               <h3>{chat.other.name}</h3>
             </div>
-            <div className="p-2" style={{ borderBottom: "1px solid #ddd" }}>
+            <div className="p-2 chat-ads" style={{ borderBottom: "1px solid #ddd" }}>
               <div className="d-flex align-items-center">
                 <img
                   src={chat.ad.images[0].url}
@@ -181,9 +181,9 @@ const Chat = () => {
                   style={{ width: "80px", height: "70px" }}
                 />
                 <div className="d-flex align-items-center justify-content-between flex-grow-1 ms-1">
-                  <div>
-                    <h6>{chat.ad.title}</h6>
-                    <small>{chat.ad.price}</small>
+                  <div >
+                    <h6 className="product-name">{chat.ad.title}</h6>
+                    <small className="product-price">${chat.ad.price}</small>
                   </div>
                   {/* <Link
                       className="btn btn-secondary btn-sm"

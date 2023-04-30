@@ -12,8 +12,7 @@ const AboutUs = () => {
             <h2 className="mb-3">About Sokochat Classified Ads</h2>
             <p className="lead">
               Sokochat is a platform for buying and selling products and
-              services. Our mission is to provide a safe and user-friendly
-              platform for users to connect and transact.
+              services.
             </p>
             <p>
               At Sokochat, we believe that every user deserves a fair and

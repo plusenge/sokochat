@@ -101,10 +101,7 @@ const Home = ({ toggleIsSold }) => {
   return (
     <>
       <div className="container category-container">
-        <h3 className="mb-4 text-dark">
-          {" "}
-          Sell, Buy and Promote your product
-        </h3>
+        <h3 className="mb-4 text-dark"> Sell, Buy and Promote your product</h3>
         <div
           className="d-flex justify-content-center justify-content-md-between flex-wrap filter-container p-3"
           style={{ backgroundColor: "aliceblue" }}
@@ -144,7 +141,7 @@ const Home = ({ toggleIsSold }) => {
               {selectedCategoryObj && (
                 <div
                   className="subcategory-container"
-                  style={{ position: "fixed", zIndex: "1" }}
+                  // style={{ position: "fixed", zIndex: "1" }}
                 >
                   {/*Important display commented it out, don't delete */}
                   {/* <h6 className="mt-3 display-category__name">
@@ -157,7 +154,7 @@ const Home = ({ toggleIsSold }) => {
                         <li
                           key={index}
                           className={`subcategory ${
-                            subcategory === selectedSubCategory ? "active" : ""
+                            subcategory === selectedSubCategory?"active" : ""
                           }`}
                           onClick={() => handleSubcategoryClick(subcategory)}
                         >
@@ -220,8 +217,9 @@ const Home = ({ toggleIsSold }) => {
           (searchQuery || isFilterSelected) && <NotFoundSearch />
         )}
       </div>
-      <div className="text-center h-100"><Footer /></div>
-      
+      <div className="text-center h-100">
+        <Footer />
+      </div>
     </>
   );
 };
