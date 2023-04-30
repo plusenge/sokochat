@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
+import Home from "./pages/Product";
 import Profile from "./pages/Profile";
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
@@ -22,6 +22,8 @@ import PrivacyPolicy from "./components/FooterContent/PrivacyPolicy";
 import AboutUs from "./components/FooterContent/AboutUs";
 import HowToUse from "./components/FooterContent/HowToUse";
 import TermConditions from "./components/FooterContent/TermConditions";
+import Product from "./pages/Product";
+import HomePageHeader from "./components/Home";
 
 const App = () => {
   return (
@@ -42,7 +44,9 @@ const App = () => {
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/:category/:id" element={<Ad />} />
           <Route path="/edit-ad/:id" element={<EditAd />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Product />} />
+          <Route path="/" element={<HomePageHeader/>} />
+
           <Route path="*" element={<None />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="terms-conditions" element={<TermConditions />} />

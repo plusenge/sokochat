@@ -14,9 +14,13 @@
 .toggle-menu__img {
   margin-left: 1rem;
 }
-
-.btn-logout {
+.btn-logout{
+  color: #f1f1f1 !important;
+  background-color: #333333c5 !important;
+}
+.btn-logout:hover {
   background-color: #ff4444 !important;
+  color: #eee !important;
 }
 
 .btn-logout:hover {

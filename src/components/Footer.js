@@ -34,7 +34,7 @@ const Footer = () => {
                 for buying, selling, or finding what you need.
               </p>
             </div>
-            <div className="col-md-4 col-md-4 text-center">
+            <div className="col-md-4 col-md-4">
               <h5>Information</h5>
               <ul className="list-unstyled text-small">
                 <li>
@@ -60,7 +60,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className="contact-us col-md-4 col-sm-12 text-md-start text-center">
+            <div className="contact-us col-md-4 col-sm-12 text-md-start">
               <h5>Contact Us</h5>
               <ul className="list-unstyled text-decoration-none text-small">
                 <li>
@@ -99,7 +99,7 @@ const Footer = () => {
             borderBottomRightRadius: "7px",
           }}
         >
-          <div className="container text-center">
+          <div className="container">
             <p className="mb-0">&copy; 2023 SokoChat. All rights reserved.</p>
           </div>
         </div>

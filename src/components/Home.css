@@ -1,0 +1,23 @@
+.login-button:hover {
+  background-color: #6d6c6c !important;
+}
+.sell-button:hover {
+  background-color: #be7e07 !important;
+}
+
+@media (max-width:670px) {
+  .banner{
+    margin-top:-1rem ;
+  }
+  .banner-title{
+    margin-top: 1rem;
+    font-size: 1.75rem !important;
+  }
+  .banner-subtitle{
+    font-size: 1.25rem !important;
+    margin-top: -1rem;
+  }
+  .homepage-header-links-container{
+    justify-content: center;
+  }
+}
