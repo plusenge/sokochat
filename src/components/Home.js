@@ -6,8 +6,8 @@ import "../components/Home.css";
 function HomePageHeader() {
   return (
     <>
-      <div
-        className="banner"
+      <div data-aos="flip-left" 
+        className="banner "
         style={{
           background: "#f9f9f9",
           display: "flex",
