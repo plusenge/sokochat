@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import bannerImg from "../assets/images/banner2.png";
-import Footer from "./Footer";
 import "../components/Home.css";
 
 function HomePageHeader() {
@@ -132,7 +131,6 @@ function HomePageHeader() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
