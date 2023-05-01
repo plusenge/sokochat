@@ -23,13 +23,13 @@ const Footer = () => {
           borderRadius: "7px",
         }}
       >
-        <div className="footer-content__container container d-flex justify-content-center text-center m-auto py-5">
+        <div className="footer-content__container container d-flex justify-content-center m-auto py-5">
           <div className="row">
             <div className="col-md-4" style={{ color: "#333" }}>
               <h5 className="text-light">About Us</h5>
               <p className="text-start">
                 Sokochat Classified Ads is a platform that allows users to post
-                and browse ads for various categories
+                and browse ads for various categories.
               </p>
             </div>
             <div className="col-md-4 col-md-4">
@@ -58,7 +58,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className="contact-us col-md-4 col-sm-12 text-end">
+            <div className="contact-us col-md-4 col-sm-12">
               <h5>Contact Us</h5>
               <ul className="list-unstyled text-decoration-none text-small">
                 <li>
@@ -97,7 +97,7 @@ const Footer = () => {
             borderBottomRightRadius: "7px",
           }}
         >
-          <div className="container">
+          <div className="container text-center">
             <p className="mb-0">&copy; 2023 SokoChat. All rights reserved.</p>
           </div>
         </div>

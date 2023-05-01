@@ -2,24 +2,23 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import bannerImg from "../assets/images/banner2.png";
 import "../components/Home.css";
+import Footer from "../components/Footer";
 
 function HomePageHeader() {
   return (
     <>
       <div
-        data-aos="fade-up"
-        data-aos-duration="3000"
+        data-aos="fade-right"
         className="banner "
         style={{
           background: "#f9f9f9",
           display: "flex",
           justifyContent: "center",
-          padding: "50px 0",
+          // padding: "50px 0",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           justifyItems: "center",
-          height: "80vh",
         }}
       >
         <div
@@ -50,7 +49,6 @@ function HomePageHeader() {
                 }}
               />
             </div>
-
             <div className="col-md-6">
               <h1
                 className="banner-title"
@@ -131,6 +129,7 @@ function HomePageHeader() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
