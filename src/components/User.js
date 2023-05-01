@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import useSnapshot from "../utils/useSnapshot"
-import { BsTypeH1 } from "react-icons/bs";
 
 const User = ({ user, selectUser, chat, online, user1 }) => {
   const user2 = user.other.uid;
@@ -28,7 +27,6 @@ const User = ({ user, selectUser, chat, online, user1 }) => {
     setSelectedUser(user);
     selectUser(user);
   };
-
   // Log values for debugging
   console.log("val: ", val);
   console.log("val.lastSender: ", val?.lastSender);
@@ -74,7 +72,6 @@ const User = ({ user, selectUser, chat, online, user1 }) => {
           } `}
         />
       </div>
-
       <div className="d-none d-md-inline-block ms-2">
         <h6>
         {user.other.name}

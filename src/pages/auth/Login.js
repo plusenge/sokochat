@@ -56,6 +56,12 @@ const Login = () => {
     if (!password) {
       validationErrors.password = "Password is required";
     }
+    
+    // User is already logged in
+    const messageAlert = "A user already logged in!";
+    if (auth.currentUser) {
+      alert(messageAlert);
+    }
 
     if (Object.keys(validationErrors).length !== 0) {
       setLoginErrors(validationErrors);
