@@ -4,8 +4,8 @@ import Footer from "../Footer";
 const PrivacyPolicy = () => {
   return (
     <>
-    <div className="container my-5">
-      <h1 className="text-center mb-3">Privacy Policy</h1>
+    <div className="container">
+      <h1 className="text-center mb-3 text-dark">Privacy Policy</h1>
       <div className="row">
         <div className="col-md-8 mx-auto">
           <p className="text-justify">

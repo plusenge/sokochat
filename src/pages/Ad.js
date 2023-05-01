@@ -95,8 +95,8 @@ const Ad = () => {
   }
   const mainImage = images[idx] || { url: defaultImage };
 
+  // login logic
   const handleLogin = async () => {
-    // login logic
     navigate(location.state?.from || "/");
   };
 

@@ -143,9 +143,7 @@ const Sell = () => {
     if (!isValid) {
       return;
     }
-
     setValues({ ...values, error: "", loading: true });
-
     try {
       let imgs = [];
       // loop through images
@@ -189,7 +187,7 @@ const Sell = () => {
         description,
         loading: false,
       });
-      navigate("/");
+      navigate("/products");
     } catch (error) {
       setValues({ ...values, error: error.message, loading: false });
     }
@@ -312,13 +310,13 @@ const Sell = () => {
             )}
           </div>
           <div className="mb-3">
-            <label className="form-label">Location</label>
+            <label className="form-label"> Location </label>
             <select
               name="location"
               className="form-select"
               onChange={handleChange}
             >
-              <option value="">Select Province</option>
+              <option value=""> Select Province </option>
               {locations.map((location) => (
                 <option value={location.province} key={location.province}>
                   {location.province}
@@ -332,7 +330,7 @@ const Sell = () => {
 
           {values.location && (
             <div className="mb-3">
-              <label className="form-label">City</label>
+              <label className="form-label"> City </label>
               <select
                 name="city"
                 className="form-select"
@@ -354,7 +352,7 @@ const Sell = () => {
             </div>
           )}
           <div className="mb-3">
-            <label className="form-label">Contact</label>
+            <label className="form-label"> Contact </label>
             <input
               type="text"
               className="form-control"
@@ -364,7 +362,7 @@ const Sell = () => {
             />
           </div>
           <div className="mb-3">
-            <label className="form-label">Description</label>
+            <label className="form-label"> Description </label>
             <textarea
               name="description"
               cols="30"
@@ -386,7 +384,7 @@ const Sell = () => {
               disabled={loading}
               style={{ height: "45px", fontSize: "17px" }}
             >
-              <MdAddCircle size={30} /> Create
+              <MdAddCircle size={30} />Create
             </button>
           </div>
         </form>

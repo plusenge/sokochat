@@ -9,6 +9,11 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
+
+  const handleLinkClick = () => {
+    window.scrollTo(0, 0);
+  }
+   
   return (
     <div
       className="footer-container"
@@ -25,7 +30,7 @@ const Footer = () => {
       >
         <div className="footer-content__container container d-flex justify-content-center m-auto py-5">
           <div className="row">
-            <div className="col-md-4" style={{ color: "#333" }}>
+            <div className="col-md-4" style={{ color: "#333"}}>
               <h5 className="text-light">About Us</h5>
               <p className="text-start">
                 Sokochat Classified Ads is a platform that allows users to post
@@ -36,22 +41,38 @@ const Footer = () => {
               <h5>Information</h5>
               <ul className="list-unstyled text-small">
                 <li>
-                  <Link className="text-dark" to="/privacy-policy">
+                  <Link
+                    className="text-dark"
+                    to="/privacy-policy"
+                    onClick={handleLinkClick}
+                  >
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-dark" to="/terms-conditions">
+                  <Link
+                    className="text-dark"
+                    to="/terms-conditions"
+                    onClick={handleLinkClick}
+                  >
                     Terms &amp; Conditions
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-dark" to="/about-us">
+                  <Link
+                    className="text-dark"
+                    to="/about-us"
+                    onClick={handleLinkClick}
+                  >
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-dark" to="/how-to-use">
+                  <Link
+                    className="text-dark"
+                    to="/how-to-use"
+                    onClick={handleLinkClick}
+                  >
                     How to use
                   </Link>
                 </li>
@@ -64,7 +85,7 @@ const Footer = () => {
                 <li>
                   <FaPhoneAlt className="me-2" />
                   <a href="tel:123-456-7890" className="text-dark">
-                   18853375, 123-456-7890
+                    18853375, 123-456-7890
                   </a>
                 </li>
                 <li>

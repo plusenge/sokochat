@@ -85,7 +85,7 @@ const Login = () => {
       });
 
       // Redirect to the previous page only if the login is successful
-      navigate(location.state?.from || "/");
+      navigate(location.state?.from || "/products");
     } catch (error) {
       console.error(error);
       if (

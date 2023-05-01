@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import bannerImg from "../assets/images/banner2.png";
 import "../components/Home.css";
+import {Link} from "react-router-dom";
+
 import Footer from "../components/Footer";
 
 function HomePageHeader() {
+
+
+
   return (
     <>
       <div
@@ -106,7 +110,7 @@ function HomePageHeader() {
                     textDecoration: "none",
                   }}
                 >
-                  Sell on Market
+                  Sell on Market...
                 </Link>
                 <Link
                   to="/auth/login"

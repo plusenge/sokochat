@@ -1,4 +1,3 @@
-
 import React from "react";
 import { FaUsers, FaUserTie, FaHandshake, FaHeart } from "react-icons/fa";
 import Footer from "../Footer";
@@ -6,10 +5,10 @@ import Footer from "../Footer";
 const AboutUs = () => {
   return (
     <>
-      <div className="container py-5">
+      <div className="container">
         <div className="row">
           <div className="col-md-6">
-            <h2 className="mb-3">About Sokochat Classified Ads</h2>
+            <h2 className="mb-3 text-dark">About SokoChat Classified Ads</h2>
             <p className="lead">
               Sokochat is a platform for buying and selling products and
               services.
@@ -39,7 +38,7 @@ const AboutUs = () => {
                   className="display-4 text-primary"
                   fill="#55c2da"
                 />
-                <h3>Connect with Other Users</h3>
+                <h4>Connect with Other Users</h4>
                 <p>
                   With thousands of users from all over the world, Sokochat is a
                   great way to connect with others and buy or sell products and
@@ -53,7 +52,7 @@ const AboutUs = () => {
                   className="display-4 text-primary"
                   fill="#55c2da"
                 />
-                <h3>Trustworthy Transactions</h3>
+                <h4>Trustworthy Transactions</h4>
                 <p>
                   Our safety features and policies ensure that all transactions
                   on Sokochat are secure and legitimate, so you can buy or sell
@@ -67,7 +66,7 @@ const AboutUs = () => {
                   className="display-4 text-primary"
                   fill="#55c2da"
                 />
-                <h3>Excellent Customer Support</h3>
+                <h4>Excellent Customer Support</h4>
                 <p>
                   Our team is dedicated to providing excellent customer service
                   and support. Contact us at any time with your questions or
@@ -82,7 +81,7 @@ const AboutUs = () => {
                     className="display-4 mb-2 text-primary"
                     fill="#55c2da"
                   />
-                  <h3>We Love Our Users</h3>
+                  <h4>We Love Our Users</h4>
                 <p>
                   At Sokochat, we believe that every user deserves a fair and
                   trustworthy experience. We love our users and are committed to

@@ -86,7 +86,6 @@ const Chat = () => {
         "users",
         message.users.find((id) => id !== user1)
       );
-
       const adDoc = await getDoc(adRef);
       const meDoc = await getDoc(meRef);
       const otherDoc = await getDoc(otherRef);
