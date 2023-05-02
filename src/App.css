@@ -136,6 +136,9 @@ body {
   .footer-content__container, .contact-us{
   text-align: start !important;
  }
+ .footer-container{
+  margin-top: 5rem !important;
+ }
 
  }
  

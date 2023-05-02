@@ -19,5 +19,6 @@
   }
   .homepage-header-links-container{
     justify-content: center;
+    margin-top: 1rem !important;
   }
 }

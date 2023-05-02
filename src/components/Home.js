@@ -18,11 +18,12 @@ function HomePageHeader() {
           background: "#f9f9f9",
           display: "flex",
           justifyContent: "center",
-          // padding: "50px 0",
+          padding: "50px 0",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           justifyItems: "center",
+          height:"50vh"
         }}
       >
         <div
@@ -35,6 +36,7 @@ function HomePageHeader() {
           }}
         >
           <div
+            
             className="row align-items-center"
             style={{
               display: "flex",
@@ -53,7 +55,7 @@ function HomePageHeader() {
                 }}
               />
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6 ">
               <h1
                 className="banner-title"
                 style={{
