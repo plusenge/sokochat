@@ -30,7 +30,7 @@ const Footer = () => {
       >
         <div className="footer-content__container container d-flex justify-content-center m-auto py-5">
           <div className="row">
-            <div className="col-md-4" style={{ color: "#333"}}>
+            <div className="col-md-4" style={{ color: "#333" }}>
               <h5 className="text-light">About Us</h5>
               <p className="text-start">
                 Sokochat Classified Ads is a platform that allows users to post

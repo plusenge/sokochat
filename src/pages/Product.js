@@ -146,7 +146,6 @@ const Home = ({ toggleIsSold }) => {
                   {/* <h6 className="mt-3 display-category__name">
                     {selectedCategoryObj.name}
                   </h6> */}
-
                   <ul className="subcategory-list">
                     {selectedCategoryObj.subcategories.map(
                       (subcategory, index) => (

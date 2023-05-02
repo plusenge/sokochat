@@ -7,9 +7,10 @@ import React, { useContext, useState, useEffect } from "react";
 import { MdAddCircle } from "react-icons/md";
 import { BsMessenger } from "react-icons/bs";
 import "./Navbar.css";
+import MyLocation from "../pages/auth/MyLocation";
 
 const Navbar = () => {
-  const { user, unread} = useContext(AuthContext);
+  const { user, unread } = useContext(AuthContext);
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [userImage, setUserImage] = useState("");
@@ -77,10 +78,13 @@ const Navbar = () => {
                   <li className="nav-item userImageNavBar">
                     {user && (
                       <div className="d-flex align-items-center toggle-menu__img-container">
-                        <span className=" me-2 userGreet">
-                          Hey {userName}!{" "}
+                        <span className="flag-container d-flex justify-content-center userGreet">
+                          <MyLocation />
+                          <span className="greeting-login ms-3">
+                            {" "}
+                            Hey {userName}!
+                          </span>
                         </span>
-
                         <Link
                           to={`/profile/${user.uid}`}
                           className="toggle-menu__img"
@@ -109,7 +113,7 @@ const Navbar = () => {
                       to={"/chat"}
                     >
                       <BsMessenger
-                        size={17}
+                        size={19}
                         fill={"#0084ff"}
                         className="messenger-icon"
                       />
@@ -125,7 +129,7 @@ const Navbar = () => {
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link " to={`/sell`}>
-                      {/* <MdAddCircle size={30} fill={"#55c2da"} /> */}
+                      {/* <MdAddCircle size={25} fill={"#55c2da"} /> */}
                       Sell
                     </Link>
                   </li>

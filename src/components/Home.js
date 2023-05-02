@@ -2,13 +2,9 @@ import React, { useEffect, useState } from "react";
 import bannerImg from "../assets/images/banner2.png";
 import "../components/Home.css";
 import {Link} from "react-router-dom";
-
 import Footer from "../components/Footer";
 
 function HomePageHeader() {
-
-
-
   return (
     <>
       <div
@@ -23,7 +19,7 @@ function HomePageHeader() {
           justifyContent: "center",
           alignItems: "center",
           justifyItems: "center",
-          height:"50vh"
+          height: "50vh",
         }}
       >
         <div
@@ -36,7 +32,6 @@ function HomePageHeader() {
           }}
         >
           <div
-            
             className="row align-items-center"
             style={{
               display: "flex",

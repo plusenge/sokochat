@@ -59,7 +59,6 @@ const AdCard = (props) => {
     if (window.confirm("Are you sure you want to delete this ad?")) {
       // await deleteDoc(doc(db, "ads", props.ad.id));
       await deleteDoc(doc(db, "ads", props.ad.adId));
-
     }
   };
 
@@ -74,7 +73,7 @@ const AdCard = (props) => {
   return (
     <div className="card ad-card ad-card-container">
       <div className="position-relative">
-        {props.ad.isSold && <Sold />} 
+        {props.ad.isSold && <Sold />}
         {props.ad.images && props.ad.images[0] && props.ad.images[0].url ? (
           <img
             src={props.ad.images[0].url}
@@ -142,15 +141,12 @@ const AdCard = (props) => {
         )}
       </Link>
       <div className="card-body">
-        
         <div className="button-group d-flex">
-          
           <Link to={adLink} className="card-title title-link">
             {title}
           </Link>
         </div>
         <div className="card-category-heart d-flex justify-content-between align-content-center">
-          
           <Link to={adLink} className="category-link">
             <p className="card-category">{category}</p>
           </Link>

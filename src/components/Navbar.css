@@ -14,10 +14,12 @@
 .toggle-menu__img {
   margin-left: 1rem;
 }
-.btn-logout{
+
+.btn-logout {
   color: #f1f1f1 !important;
   background-color: #333333c5 !important;
 }
+
 .btn-logout:hover {
   background-color: #ff4444 !important;
   color: #eee !important;
@@ -76,14 +78,23 @@
   .toggle-menu__container {
     background-color: "#5783db2b"
   }
+
+  .greeting-login {
+    display: none !important;
+  }
 }
 
 @media (max-width: 767px) {
+  .toggle-menu__img-container {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1.5px;
+    padding: .5rem;
+    justify-content: space-between;
+  }
+
   .navbar-collapse {
     background-color: #f1f1f1;
     padding: 0.5rem 1rem !important;
     margin-top: 0.5rem;
-
   }
 
   .userImageNavBar {
