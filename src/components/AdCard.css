@@ -214,6 +214,41 @@
   margin-left: -1rem;
 
 }
+
+/*Repor content*/
+.accordion {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.accordion-item {
+  margin-bottom: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+
+.accordion-title {
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.accordion-content {
+  padding: 10px;
+  display: none;
+  background-color: #ffffff;
+}
+
+.accordion-content p {
+  margin: 0;
+}
+
+.accordion-item.active .accordion-content {
+  display: block;
+}
+
 @media (max-width: 1300px) {
   .alert-warning__favorite {
     display: flex;

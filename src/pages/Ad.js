@@ -1,150 +1,150 @@
 // Importing necessary dependencies and components
-import { useState, useEffect } from "react";
-import { nanoid } from "nanoid";
-import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
-import { deleteDoc, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
-import { ref, deleteObject } from "firebase/storage";
-import { db, storage, auth } from "../firebaseConfig";
-import { TbPhoneCalling } from "react-icons/tb";
-import { FaTrashAlt, FaUser } from "react-icons/fa";
-import { HiChatAlt2 } from "react-icons/hi";
-import Moment from "react-moment";
-import "../components/AdCard.css";
-import defaultImage from "../assets/images/no-photo.jpg";
-import useSnapshot from "../utils/useSnapshot";
-import "./Ad.css";
-import Sold from "../components/Sold";
+import { useState, useEffect } from 'react'
+import { nanoid } from 'nanoid'
+import { useParams, useNavigate, Link, useLocation } from 'react-router-dom'
+import { deleteDoc, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'
+import { ref, deleteObject } from 'firebase/storage'
+import { db, storage, auth } from '../firebaseConfig'
+import { TbPhoneCalling } from 'react-icons/tb'
+import { FaTrashAlt, FaUser } from 'react-icons/fa'
+import { HiChatAlt2 } from 'react-icons/hi'
+import Moment from 'react-moment'
+import '../components/AdCard.css'
+import defaultImage from '../assets/images/no-photo.jpg'
+import useSnapshot from '../utils/useSnapshot'
+import './Ad.css'
+import Sold from '../components/Sold'
 
 // Define a functional component called Ad
 const Ad = () => {
   // Use the useParams hook from react-router-dom to get the ID of the current ad from the URL
-  const { id } = useParams();
-  const location = useLocation();
-  const navigate = useNavigate();
-  const [ad, setAd] = useState();
-  const [idx, setIdx] = useState(0);
-  const [showAllImages, setShowAllImages] = useState(false);
-  const [showBelowImages, setShowBelowImages] = useState(true);
-  const { users } = useSnapshot("favorites", id);
-  const [seller, setSeller] = useState(false);
-  const [showNumber, setShowNumber] = useState(false);
-  const [isSold, setIsSold] = useState(ad?.isSold || false);
+  const { id } = useParams()
+  const location = useLocation()
+  const navigate = useNavigate()
+  const [ad, setAd] = useState()
+  const [idx, setIdx] = useState(0)
+  const [showAllImages, setShowAllImages] = useState(false)
+  const [showBelowImages, setShowBelowImages] = useState(true)
+  const { users } = useSnapshot('favorites', id)
+  const [seller, setSeller] = useState(false)
+  const [showNumber, setShowNumber] = useState(false)
+  const [isSold, setIsSold] = useState(ad?.isSold || false)
 
   const getAd = async () => {
-    const docRef = doc(db, "ads", id);
-    const docSnap = await getDoc(docRef);
+    const docRef = doc(db, 'ads', id)
+    const docSnap = await getDoc(docRef)
     if (docSnap.exists()) {
-      setAd(docSnap.data());
+      setAd(docSnap.data())
 
-      const sellerRef = doc(db, "users", docSnap.data().postedBy);
-      const sellerSnap = await getDoc(sellerRef);
+      const sellerRef = doc(db, 'users', docSnap.data().postedBy)
+      const sellerSnap = await getDoc(sellerRef)
 
       if (sellerSnap.exists()) {
-        setSeller(sellerSnap.data());
-        new SpeechSynthesisUtterance(sellerSnap.data());
+        setSeller(sellerSnap.data())
+        new SpeechSynthesisUtterance(sellerSnap.data())
       }
     }
-  };
+  }
 
   useEffect(() => {
-    getAd();
-  }, []);
-  console.log(`ad does not exist ${id}`);
+    getAd()
+  }, [])
+  console.log(`ad does not exist ${id}`)
 
   //Delete ad function
   const deleteAd = async () => {
-    const confirm = window.confirm(`Delete ${ad.title}?`);
+    const confirm = window.confirm(`Delete ${ad.title}?`)
     if (confirm && auth.currentUser && auth.currentUser.uid === ad.postedBy) {
       //delete images
       for (const image of ad.images) {
-        const imgRef = ref(storage, image.path);
-        await deleteObject(imgRef); // Corrected line
+        const imgRef = ref(storage, image.path)
+        await deleteObject(imgRef) // Corrected line
       }
       //delete fav doc from firestore
-      await deleteDoc(doc(db, "favorites", id));
+      await deleteDoc(doc(db, 'favorites', id))
       // delete ad doc from firestore
-      await deleteDoc(doc(db, "ads", id));
+      await deleteDoc(doc(db, 'ads', id))
       //navigate to seller profile
-      navigate(`/profile/${auth.currentUser.uid}`);
+      navigate(`/profile/${auth.currentUser.uid}`)
     } else {
-      alert("Not authorized to delete this ad");
+      alert('Not authorized to delete this ad')
     }
-    console.log(`USER: ${auth.currentUser?.uid}`);
-    console.log(`ID: ${ad.postedBy}`);
-  };
+    console.log(`USER: ${auth.currentUser?.uid}`)
+    console.log(`ID: ${ad.postedBy}`)
+  }
 
   const handleEdit = () => {
     //navigate to seller edit
-    navigate(`/edit-ad/${id}`);
-  };
+    navigate(`/edit-ad/${id}`)
+  }
 
   const handleViewMore = () => {
-    setShowAllImages(!showAllImages);
-    setShowBelowImages(false); // hide all small images below when View More is clicked
-    setIdx(0); // reset the main image index to 0
-  };
+    setShowAllImages(!showAllImages)
+    setShowBelowImages(false) // hide all small images below when View More is clicked
+    setIdx(0) // reset the main image index to 0
+  }
 
-  let images = ad?.images || [];
+  let images = ad?.images || []
   if (images.length === 0) {
-    images = [{ url: defaultImage }];
+    images = [{ url: defaultImage }]
   }
   if (showAllImages) {
-    images = ad?.images || [];
+    images = ad?.images || []
   } else {
-    images = images.slice(0, 8);
+    images = images.slice(0, 8)
   }
-  const mainImage = images[idx] || { url: defaultImage };
+  const mainImage = images[idx] || { url: defaultImage }
 
   // login logic
   const handleLogin = async () => {
-    navigate(location.state?.from || "/");
-  };
+    navigate(location.state?.from || '/')
+  }
 
   // Is sold ad
   const updateStatus = async () => {
     // Toggle the value of isSold
-    const newValue = !ad.isSold;
-    await updateDoc(doc(db, "ads", id), {
+    const newValue = !ad.isSold
+    await updateDoc(doc(db, 'ads', id), {
       isSold: newValue,
-    });
-    getAd();
-  };
+    })
+    getAd()
+  }
 
   function generateRandomId() {
-    return crypto.randomBytes(16).toString("hex");
+    return crypto.randomBytes(16).toString('hex')
   }
 
   const createChatroom = async () => {
-    const loggedInUser = auth.currentUser.uid;
+    const loggedInUser = auth.currentUser.uid
     const chatId =
       loggedInUser > ad.postedBy
         ? `${loggedInUser}.${ad.postedBy}.${id}`
-        : `${ad.postedBy}.${loggedInUser}.${id}`;
+        : `${ad.postedBy}.${loggedInUser}.${id}`
 
-    await setDoc(doc(db, "messages", chatId), {
+    await setDoc(doc(db, 'messages', chatId), {
       ad: id,
       users: [loggedInUser, ad.postedBy],
-    });
+    })
 
-    navigate("/chat", { state: { ad } });
-  };
+    navigate('/chat', { state: { ad } })
+  }
 
   return ad ? (
-    <div style={{ marginTop: "5rem" }}>
+    <div style={{ marginTop: '5rem' }}>
       <useSnapshot />
       <div className="mt-5 container">
         <div className="row ">
           <div
             id="carousselDetail"
             className="carousel slide col-md-8 d-flex flex-md-row flex-column justify-content-between"
-            style={{ width: "80%", margin: "0 auto" }}
+            style={{ width: '80%', margin: '0 auto' }}
           >
             <div className="container-images__slider">
-              <div className="carousel-inner " style={{ height: "410px" }}>
+              <div className="carousel-inner " style={{ height: '410px' }}>
                 {images.map((image, i) => (
                   <div
                     className={`carousel-item card-text-water__mark ${
-                      idx === i ? "active" : ""
+                      idx === i ? 'active' : ''
                     }`}
                     key={i}
                   >
@@ -155,10 +155,10 @@ const Ad = () => {
                       alt={ad.title}
                       className="d-block w-100"
                       style={{
-                        width: "100%",
-                        height: "400px",
-                        objectFit: "cover",
-                        transition: "opacity 0.5s ease-in-out",
+                        width: '100%',
+                        height: '400px',
+                        objectFit: 'cover',
+                        transition: 'opacity 0.5s ease-in-out',
                       }}
                     />
                     <button
@@ -194,7 +194,7 @@ const Ad = () => {
                 <div className="small-images-container position-relative ">
                   {ad.images.slice(0, 8).map((image, i) => (
                     <div
-                      className={`small-image ${idx === i ? "active" : ""}`}
+                      className={`small-image ${idx === i ? 'active' : ''}`}
                       key={i}
                       onClick={() => setIdx(i)}
                     >
@@ -234,23 +234,22 @@ const Ad = () => {
                   <h6 className="card-subtitle mb-2">{ad.title}</h6>
                   <div className="d-flex justify-content-between">
                     <p className="card-text">
-                      {ad.location} -{" "}
+                      {ad.location} -{' '}
                       <small>
                         <Moment fromNow>{ad.publishedAt.toDate()}</Moment>
                       </small>
                     </p>
                     {/*=============// Edit button =========== */}
-                    {auth.currentUser &&
-                      auth.currentUser.uid === ad.postedBy && (
-                        <>
-                          <button
-                            className="btn btn-primary"
-                            onClick={handleEdit}
-                          >
-                            Edit
-                          </button>
-                        </>
-                      )}
+                    {auth.currentUser && auth.currentUser.uid === ad.postedBy && (
+                      <>
+                        <button
+                          className="btn btn-primary"
+                          onClick={handleEdit}
+                        >
+                          Edit
+                        </button>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -267,24 +266,24 @@ const Ad = () => {
                           src={seller.photoUrl}
                           alt={seller.name}
                           style={{
-                            width: "70px",
-                            height: "70px",
-                            borderRadius: "50%",
-                            marginRight: "10px",
+                            width: '70px',
+                            height: '70px',
+                            borderRadius: '50%',
+                            marginRight: '10px',
                           }}
                         />
                       ) : (
                         <FaUser
                           className="me-2"
                           style={{
-                            width: "70px",
-                            height: "70px",
-                            borderRadius: "50%",
-                            marginRight: "10px",
-                            backgroundColor: "grey",
-                            fill: "#f0f8ff",
-                            padding: "2px",
-                            border: "solid 5px #f0f8ff",
+                            width: '70px',
+                            height: '70px',
+                            borderRadius: '50%',
+                            marginRight: '10px',
+                            backgroundColor: 'grey',
+                            fill: '#f0f8ff',
+                            padding: '2px',
+                            border: 'solid 5px #f0f8ff',
                           }}
                         />
                       )}
@@ -325,16 +324,16 @@ const Ad = () => {
                         to="/auth/login"
                         state={{ from: location }}
                         style={{
-                          textDecoration: "none",
-                          fontSize: "18px",
-                          color: "#099ba9",
-                          fontWeight: "400",
-                          padding: "5px",
+                          textDecoration: 'none',
+                          fontSize: '18px',
+                          color: '#099ba9',
+                          fontWeight: '400',
+                          padding: '5px',
                         }}
                         onClick={handleLogin}
                       >
                         Login
-                      </Link>{" "}
+                      </Link>{' '}
                       to see contact info
                     </p>
                   )}
@@ -347,12 +346,12 @@ const Ad = () => {
                   onClick={updateStatus}
                   style={{
                     display:
-                      ad.postedBy === auth.currentUser?.uid ? "block" : "none",
+                      ad.postedBy === auth.currentUser?.uid ? 'block' : 'none',
                   }}
                 >
                   {ad.isSold && ad.postedBy === auth.currentUser?.uid
-                    ? "Still Available"
-                    : "Mark as Sold"}
+                    ? 'Still Available'
+                    : 'Mark as Sold'}
                 </button>
               </div>
             </div>
@@ -360,15 +359,15 @@ const Ad = () => {
         </div>
         <div
           className="mt-5 container-carousselDetail"
-          style={{ width: "80%", margin: "0 auto" }}
+          style={{ width: '80%', margin: '0 auto' }}
         >
           <h3>Description:</h3>
-          <p style={{ maxWidth: "700px", wordWrap: "break-word" }}>
+          <p style={{ maxWidth: '700px', wordWrap: 'break-word' }}>
             {ad.description}
           </p>
         </div>
       </div>
     </div>
-  ) : null;
-};
-export default Ad;
+  ) : null
+}
+export default Ad

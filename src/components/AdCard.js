@@ -106,6 +106,7 @@ const AdCard = (props) => {
               className="heart heart-empty"
               size={23}
               onClick={toggleFavorite}
+              style={{ color: "#0890ae" }}
             />
           )}
         </p>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from 'react'
 import {
   collection,
   orderBy,
@@ -6,108 +6,121 @@ import {
   getDocs,
   limit,
   where,
-} from "firebase/firestore";
-import { db } from "../firebaseConfig";
-import AdCard from "../components/AdCard";
-import { AuthContext } from "../context/auth";
-import { Link } from "react-router-dom";
+} from 'firebase/firestore'
+import { db } from '../firebaseConfig'
+import AdCard from '../components/AdCard'
+import { AuthContext } from '../context/auth'
+import { Link } from 'react-router-dom'
 // import "./Home.css";
-import { categories, locations } from "../data/config";
-import NotFoundSearch from "../components/NotFoundSearch";
-import Footer from "../components/Footer";
-import "../pages/Product.css"
+import { categories, locations } from '../data/config'
+import NotFoundSearch from '../components/NotFoundSearch'
+import Footer from '../components/Footer'
+import '../pages/Product.css'
 
 const Home = ({ toggleIsSold }) => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isFilterSelected, setIsFilterSelected] = useState(false);
-  const [ads, setAds] = useState([]);
-  const { user } = useContext(AuthContext);
-  const [selectedPrice, setSelectedPrice] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedSubCategory, setSelectedSubcategory] = useState("");
+  const [searchQuery, setSearchQuery] = useState('')
+  const [isFilterSelected, setIsFilterSelected] = useState(false)
+  const [ads, setAds] = useState([])
+  const { user } = useContext(AuthContext)
+  const [selectedPrice, setSelectedPrice] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('')
+  const [selectedSubCategory, setSelectedSubcategory] = useState('')
+  const [displayCount, setDisplayCount] = useState(8)
+  const [isLoadMore, setIsLoadMore] = useState(false)
 
   // Event handler for selecting a category
   const handleCategoryChange = (e) => {
-    const selectedCategory = e.target.value;
-    setSelectedCategory(selectedCategory);
-    setSelectedSubcategory("");
+    const selectedCategory = e.target.value
+    setSelectedCategory(selectedCategory)
+    setSelectedSubcategory('')
     //Not found product message only show when filter =0 or search = 0
-    setIsFilterSelected(true);
-  };
+    setIsFilterSelected(true)
+  }
   // Get the object for the currently selected category
   const selectedCategoryObj = categories.find(
-    (category) => category.name === selectedCategory
-  );
+    (category) => category.name === selectedCategory,
+  )
   // Event handler for selecting a subcategory
   const handleSubcategoryClick = (subcategoryName) => {
-    setSelectedSubcategory(subcategoryName);
+    setSelectedSubcategory(subcategoryName)
     //Not found product message only show when filter =0 or search = 0
-    setIsFilterSelected(true);
-  };
+    setIsFilterSelected(true)
+  }
   const handleSortByPrice = (ads) => {
-    if (selectedPrice === "high") {
-      return ads.sort((a, b) => b.price - a.price);
-    } else if (selectedPrice === "low") {
-      return ads.sort((a, b) => a.price - b.price);
+    if (selectedPrice === 'high') {
+      return ads.sort((a, b) => b.price - a.price)
+    } else if (selectedPrice === 'low') {
+      return ads.sort((a, b) => a.price - b.price)
     } else {
-      return ads;
+      return ads
     }
-  };
+  }
   // Get ads handler function
   const getAds = async () => {
-    const adsRef = collection(db, "ads");
-    let q;
+    const adsRef = collection(db, 'ads')
+    let q
     if (selectedCategory) {
       if (selectedSubCategory) {
         q = query(
           adsRef,
-          orderBy("publishedAt", "desc"),
-          where("category", "==", selectedCategory),
-          where("subcategory", "==", selectedSubCategory),
-          limit(8)
-        );
+          orderBy('publishedAt', 'desc'),
+          where('category', '==', selectedCategory),
+          where('subcategory', '==', selectedSubCategory),
+          limit(displayCount), //include the limit parameter based on displayCount
+        )
       } else {
         q = query(
           adsRef,
-          orderBy("publishedAt", "desc"),
-          where("category", "==", selectedCategory),
-          limit(8)
-        );
+          orderBy('publishedAt', 'desc'),
+          where('category', '==', selectedCategory),
+          limit(displayCount),
+        )
       }
     } else {
-      q = query(adsRef, orderBy("publishedAt", "desc"));
+      q = query(adsRef, orderBy('publishedAt', 'desc'), limit(displayCount))
     }
-    const adDocs = await getDocs(q);
-    let ads = [];
-    adDocs.forEach((doc) => ads.push({ ...doc.data(), id: doc.id }));
-    setAds(handleSortByPrice(ads));
-  };
+
+    const adDocs = await getDocs(q)
+    let ads = []
+    adDocs.forEach((doc) => ads.push({ ...doc.data(), id: doc.id }))
+    setAds(handleSortByPrice(ads))
+  }
   useEffect(() => {
-    getAds();
-  }, [selectedCategory, selectedPrice, selectedSubCategory]);
+    getAds()
+  }, [selectedCategory, selectedPrice, selectedSubCategory])
 
   const handleFavoriteClick = (ad) => {
     if (!user) {
       // redirect to login page if user is not logged in
-      return <Link to="/auth/login" />;
+      return <Link to="/auth/login" />
     }
     // handle adding to favorites for logged in user
-    console.log("Add to favorites:", ad);
-  };
+    console.log('Add to favorites:', ad)
+  }
   const handleRemoveAllClick = () => {
-    setSelectedPrice("");
-    setSelectedCategory("");
-    setSelectedSubcategory("");
-  };
+    setSelectedPrice('')
+    setSelectedCategory('')
+    setSelectedSubcategory('')
+  }
+
+  const handleLoadMoreClick = () => {
+    setDisplayCount((prevDisplayCount) => prevDisplayCount + 4) // Increase the display count by 4 when clicked
+  }
+
+  useEffect(() => {
+    // Fetch ads whenever selectedCategory, selectedPrice, selectedSubCategory, or displayCount changes
+    getAds()
+  }, [selectedCategory, selectedPrice, selectedSubCategory, displayCount])
+
   return (
     <>
       <div className="container category-container">
         <div
           className="d-flex justify-content-center justify-content-md-between flex-wrap filter-container p-3"
-          style={{ backgroundColor: "aliceblue" }}
+          style={{ backgroundColor: 'aliceblue' }}
         >
-          <div className="sortyBy_price">
-            <h5>Sort By</h5>
+          <div className="sortyBy_price mx-2">
+            <h6>Sort By</h6>
             <select
               className="form-select sortBy-price__container"
               onChange={(e) => setSelectedPrice(e.target.value)}
@@ -121,9 +134,9 @@ const Home = ({ toggleIsSold }) => {
           <div className="d-flex justify-content-center justify-content-md-between flex-wrap ">
             <div>
               <div className="filter-container">
-                <h5 className="filter-bycategory__title" FilterByCategory>
+                <h6 className="filter-bycategory__title mt-3" FilterByCategory>
                   Filter By Category
-                </h5>
+                </h6>
                 <select
                   className="form-select filter-input__category"
                   value={selectedCategory}
@@ -152,13 +165,13 @@ const Home = ({ toggleIsSold }) => {
                         <li
                           key={index}
                           className={`subcategory ${
-                            subcategory === selectedSubCategory ? "active" : ""
+                            subcategory === selectedSubCategory ? 'active' : ''
                           }`}
                           onClick={() => handleSubcategoryClick(subcategory)}
                         >
                           {subcategory}
                         </li>
-                      )
+                      ),
                     )}
                   </ul>
                 </div>
@@ -167,7 +180,7 @@ const Home = ({ toggleIsSold }) => {
                 <div className="category-list">
                   <p
                     className="category active"
-                    onClick={() => setSelectedSubcategory("")}
+                    onClick={() => setSelectedSubcategory('')}
                   >
                     {selectedSubCategory} <i className="bi bi-x"></i>
                   </p>
@@ -214,11 +227,19 @@ const Home = ({ toggleIsSold }) => {
         ) : (
           (searchQuery || isFilterSelected) && <NotFoundSearch />
         )}
+
+        {ads.length > 0 && ads.length >= displayCount && (
+          <div className="text-center mt-3">
+            <button className="btn btn-primary" onClick={handleLoadMoreClick}>
+              Load More
+            </button>
+          </div>
+        )}
       </div>
       <div className="text-center h-100">
         <Footer />
       </div>
     </>
-  );
-};
-export default Home;
+  )
+}
+export default Home

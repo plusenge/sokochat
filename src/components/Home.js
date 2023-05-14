@@ -19,7 +19,7 @@ function HomePageHeader() {
           justifyContent: "center",
           alignItems: "center",
           justifyItems: "center",
-          height: "50vh",
+          height: "75vh",
         }}
       >
         <div

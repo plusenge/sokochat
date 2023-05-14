@@ -280,7 +280,7 @@ const Profile = () => {
             <div className="row card-img__content">
               {ads.map((ad) => (
                 <div
-                  className="col-sm-6 col-md-4 col-xl-4 mb-3 single-card"
+                  className="col-sm-6 col-md-4 col-xl-4 mb-3 single-card profile-single__product"
                   key={ad.ad?.adId}
                 >
                   <AdCard ad={ad} className="background-image_photo" />

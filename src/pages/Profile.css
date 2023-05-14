@@ -53,6 +53,9 @@
   color: #333;
 }
 
+.profile-card {
+  margin-left: 0px;
+}
 
 @media (max-width: 1200px) {
   .container-profile_image {
@@ -82,8 +85,6 @@
     position: absolute;
     top: 12rem;
   }
-
-  .card-img__content {}
 
   .single-card {
     width: 50%;
@@ -121,8 +122,4 @@
     margin-top: 15rem;
     margin-left: .75rem;
   }
-}
-
-.profile-card {
-  margin-left: 0px;
 }
